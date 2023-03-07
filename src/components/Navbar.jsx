@@ -5,8 +5,8 @@ import { navLinks } from "../constants";
 import { logo, menu, close } from "../assets";
 
 const Navbar = () => {
-  const [active, setActive] = useState("");
-  const [toggle, setToggle] = useState(false);
+  const [active, setActive] = useState(""); // State of the current active section of the webpage
+  const [toggle, setToggle] = useState(false); // State of the mobile navbar menu
 
   return (
     <nav
@@ -22,7 +22,7 @@ const Navbar = () => {
           }}
         >
           <img src={logo} alt={logo} className="w-9 h-9 object-contain"></img>
-          <p className="text-white text-[18px] font-bold cursor-pointer">
+          <p className="text-white text-[18px] font-bold flex cursor-pointer">
             Mohamed Ezzedine
           </p>
         </Link>
@@ -40,6 +40,8 @@ const Navbar = () => {
             </li>
           ))}
         </ul>
+
+        {/* Toggle menu for mobile devices */}
         <div className="sm:hidden flex flex-1 justify-end items-center">
           <img
             src={toggle ? close : menu}
@@ -49,6 +51,28 @@ const Navbar = () => {
               setToggle(!toggle);
             }}
           />
+          <div
+            className={`${
+              !toggle ? "hidden" : "flex"
+            } p-6 black-gradient absolute top-20 right-0 mx-4 my-2 min-w-[140px] z-10 rounded-xl`}
+          >
+            <ul className="list-none flex justify-end items-start flex-col gap-4">
+              {navLinks.map((link) => (
+                // No need to for hover effect on mobile
+                <li
+                  className={`${
+                    active === link.title ? "text-white" : "text-secondary"
+                  } font-poppins font-medium cursor-pointer text-[16px]`}
+                  onClick={() => {
+                    setToggle(!toggle);
+                    setActive(link.title);
+                  }}
+                >
+                  <a href={`#${link.id}`}>{link.title}</a>
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
       </div>
     </nav>
