@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { services } from "../constants";
 import { styles } from "../styles";
 import { fadeIn, textVariant } from "../utils/motion";
+import { SectionWrapper } from "./higherOrderComponent";
 
 const ServiceCard = ({ index, title, icon }) => {
   // Card component that tilts when you hover on it
@@ -55,4 +56,4 @@ const About = () => {
   );
 };
 
-export default About;
+export default SectionWrapper(About, "about");
