@@ -31,9 +31,9 @@ const ServiceCard = ({ index, title, icon }) => {
 const About = () => {
   return (
     <>
-      <motion.div variants={textVariant()}>
+      <motion.div variants={textVariant(0.2)}>
         <p className={styles.sectionSubText}>Introduction</p>
-        <h2 className={styles.sectionHeadText}>Overview</h2>
+        <h2 className={styles.sectionHeadText}>Overview.</h2>
       </motion.div>
 
       <motion.p
@@ -47,6 +47,7 @@ const About = () => {
         In imperdiet, justo et egestas efficitur, urna eros sodales ipsum,
         congue pharetra justo massa vel erat.
       </motion.p>
+
       <div className="mt-20 flex flex-wrap gap-10">
         {services.map((service, index) => (
           <ServiceCard key={service.title} index={index} {...service} />
