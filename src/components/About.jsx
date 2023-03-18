@@ -1,5 +1,5 @@
 import React from "react";
-import Tilt from "react-tilt";
+import Tilt from "react-parallax-tilt";
 import { motion } from "framer-motion";
 import { services } from "../constants";
 import { styles } from "../styles";
@@ -7,7 +7,7 @@ import { fadeIn, textVariant } from "../utils/motion";
 import { SectionWrapper } from "./higherOrderComponent";
 
 const ServiceCard = ({ index, title, icon }) => {
-  // Card component that tilts when you hover on it
+  // Card component that tilts when you hover on it, using framer motion
   return (
     <Tilt className="xs:w-[250px] w-full">
       <motion.div
@@ -31,7 +31,7 @@ const ServiceCard = ({ index, title, icon }) => {
 const About = () => {
   return (
     <>
-      <motion.div>
+      <motion.div variants={textVariant()}>
         <p className={styles.sectionSubText}>Introduction</p>
         <h2 className={styles.sectionHeadText}>Overview</h2>
       </motion.div>
