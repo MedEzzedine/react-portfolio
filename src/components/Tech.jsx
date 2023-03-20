@@ -1,9 +1,6 @@
 import { SectionWrapper } from "./higherOrderComponent";
 import { technologies } from "../constants";
 
-// Tech folder location
-const techFolder = "../assets/tech";
-
 const Tech = () => {
   return (
     <div className="flex flex-wrap justify-center gap-10">
