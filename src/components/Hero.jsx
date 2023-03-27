@@ -1,6 +1,7 @@
 import React from "react";
 import { styles } from "../styles";
 import { motion } from "framer-motion";
+import { SectionWrapper } from "./higherOrderComponent";
 
 const Hero = () => {
   return (
@@ -14,7 +15,7 @@ const Hero = () => {
         </div>
         <div className="">
           <h1 className={`${styles.heroHeadText} text-white`}>
-            Hello, I'm &nbsp;<span className="text-[#915eff]">Mohamed</span>
+            Hello, I'm&nbsp;<span className="text-[#915eff]">Mohamed</span>
           </h1>
           <p className={`${styles.heroSubText} mt-2 text-white-100`}>
             I'm an AWS <br className="sm:block hidden" />
@@ -44,4 +45,4 @@ const Hero = () => {
   );
 };
 
-export default Hero;
+export default SectionWrapper(Hero, "hero");
